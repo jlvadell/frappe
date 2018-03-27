@@ -612,7 +612,7 @@ class Document(BaseDocument):
 					where name = %s for update""".format(self.doctype), self.name, as_dict=True)
 
 				if not tmp:
-					frappe.throw(_("Record does not exist"))
+					frappe.throw(_("Record does not exist") + self.name + " " + self.doctype)
 				else:
 					tmp = tmp[0]
 
